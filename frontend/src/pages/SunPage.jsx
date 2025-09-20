@@ -5,8 +5,16 @@ import Footer from "../components/Footer";
 import SearchBar from "../components/SearchBar";
 
 const sunFacts = [
-  { name: "Sun", description: "The Sun is the star at the center of our solar system. It provides light and heat necessary for life on Earth." },
-  { name: "Solar Energy", description: "The Sun's energy powers life on Earth and drives weather patterns." },
+  {
+    name: "Sun",
+    description:
+      "The Sun is the star at the center of our solar system. It provides light and heat necessary for life on Earth.",
+  },
+  {
+    name: "Solar Energy",
+    description:
+      "The Sun's energy powers life on Earth and drives weather patterns.",
+  },
 ];
 
 const sunQuizQuestions = [
@@ -34,15 +42,16 @@ export default function SunPage() {
   const [showBadge, setShowBadge] = useState(false);
   const [showScore, setShowScore] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [tab, setTab] = useState("overview"); // FIX: added missing tab state
 
   const handleAnswer = (answer) => {
     setSelectedAnswer(answer);
     if (answer === sunQuizQuestions[currentQuestion].correct) {
-      setScore(score + 1);
+      setScore((prev) => prev + 1);
     }
     setTimeout(() => {
       if (currentQuestion < sunQuizQuestions.length - 1) {
-        setCurrentQuestion(currentQuestion + 1);
+        setCurrentQuestion((prev) => prev + 1);
         setSelectedAnswer(null);
       } else {
         if (score + 1 >= 12) {
@@ -52,28 +61,121 @@ export default function SunPage() {
         }
         setShowQuiz(false);
       }
-    }, 1000); // Delay to show feedback
+    }, 1000);
   };
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-yellow-200 to-orange-500">
       <Header activePage="sun" />
       <SearchBar data={sunFacts} />
-      <main className="flex-grow flex flex-col justify-center items-center text-black">
-        <h1 className="text-4xl font-bold mb-4">🌞 The Sun</h1>
-        <p className="text-lg max-w-xl text-center">
-          The Sun is the star at the center of our solar system. It provides the
-          light and heat necessary for life on Earth. It is a massive ball of
-          hot plasma, mostly hydrogen and helium, undergoing nuclear fusion.
-        </p>
-        <div className="mt-8 text-center">
+
+      <main className="flex-grow flex flex-col items-center text-black px-6">
+        {/* Hero Section */}
+        <section className="flex flex-col md:flex-row items-center justify-center gap-12 w-full max-w-6xl py-16">
+          <div className="flex-1 text-center md:text-left">
+            <h1 className="text-5xl md:text-6xl font-extrabold text-yellow-600 mb-4">The Sun</h1>
+            <p className="text-gray-800 text-lg md:text-xl">
+              The Sun is the center of our solar system, providing light, energy, and life to Earth. Explore its fascinating structure and importance.
+            </p>
+          </div>
+          <div className="flex-1 flex justify-center relative w-64 h-64">
+            <div className="absolute inset-0 rounded-full bg-yellow-400 animate-pulse blur-lg"></div>
+            <div className="absolute inset-0 rounded-full bg-yellow-300 animate-spin-slow"></div>
+          </div>
+        </section>
+
+        {/* Tabs Section */}
+        <section className="mt-8 w-full max-w-4xl">
+          <div className="flex justify-center gap-6 border-b border-gray-700">
+            {["overview", "structure", "importance"].map((t) => (
+              <button
+                key={t}
+                onClick={() => setTab(t)}
+                className={`pb-2 text-lg ${
+                  tab === t
+                    ? "text-yellow-600 border-b-2 border-yellow-600 font-semibold"
+                    : "text-gray-600"
+                } transition`}
+              >
+                {t.charAt(0).toUpperCase() + t.slice(1)}
+              </button>
+            ))}
+          </div>
+          <div className="mt-6 text-gray-800 text-center md:text-left space-y-4">
+            {tab === "overview" && (
+              <p>
+                The Sun is a nearly perfect sphere of hot plasma, mainly hydrogen and helium. It constitutes 99.8% of the solar system's mass and is vital for life on Earth.
+              </p>
+            )}
+            {tab === "structure" && (
+              <p>
+                Layers include the core, radiative zone, convective zone, photosphere, chromosphere, and corona. Each layer transfers energy and drives solar phenomena.
+              </p>
+            )}
+            {tab === "importance" && (
+              <p>
+                The Sun provides light and warmth, powers photosynthesis, drives weather, and supports life on Earth. Without it, our planet would be frozen and lifeless.
+              </p>
+            )}
+          </div>
+        </section>
+
+        {/* Facts Section */}
+        <section className="mt-16 w-full max-w-6xl">
+          <h2 className="text-3xl font-bold text-yellow-600 mb-6 text-center">Amazing Facts</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {[
+              "4.6 billion years old",
+              "Light reaches Earth in ~8 minutes",
+              "Core temperature ~15 million °C",
+              "109 times wider than Earth",
+              "Contains 99.8% of solar system’s mass",
+              "Will eventually become a red giant",
+            ].map((fact, i) => (
+              <div
+                key={i}
+                className="p-5 rounded-lg bg-white/70 border border-yellow-300 hover:border-yellow-600 hover:scale-105 transition text-center"
+              >
+                {fact}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Gallery Section */}
+        <section className="mt-16 w-full max-w-6xl">
+          <h2 className="text-3xl font-bold text-yellow-600 mb-6 text-center">Sun Gallery</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {[
+              "https://solarsystem.nasa.gov/system/stellar_items/image_files/4_sun.jpg",
+              "https://upload.wikimedia.org/wikipedia/commons/c/c3/Solar_prominence_from_STEREO_spacecraft_September_29%2C_2008.jpg",
+              "https://upload.wikimedia.org/wikipedia/commons/4/4a/Sun_white_light.jpg",
+            ].map((img, i) => (
+              <img
+                key={i}
+                src={img}
+                alt="Sun"
+                className="rounded-lg shadow-lg hover:scale-105 transition"
+              />
+            ))}
+          </div>
+        </section>
+
+        {/* Quiz Section */}
+        <div className="mt-12 text-center">
           <button
             className="bg-yellow-500 px-6 py-2 rounded font-bold text-white hover:bg-yellow-600"
-            onClick={() => setShowQuiz(true)}
+            onClick={() => {
+              setShowQuiz(true);
+              setCurrentQuestion(0);
+              setScore(0);
+            }}
           >
             Start Quiz
           </button>
         </div>
+
+        {/* Quiz Modal */}
         {showQuiz && (
           <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
             <div className="bg-gray-800 text-white rounded-xl p-6 w-full max-w-md relative">
@@ -105,11 +207,15 @@ export default function SunPage() {
             </div>
           </div>
         )}
+
+        {/* Badge Modal */}
         {showBadge && (
           <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
             <div className="bg-gray-800 text-white rounded-xl p-6 w-full max-w-md text-center">
               <h2 className="text-xl font-bold mb-4">🎉 Congratulations!</h2>
-              <p className="text-lg mb-4">You earned a badge for scoring {score}/15 correct answers!</p>
+              <p className="text-lg mb-4">
+                You earned a badge for scoring {score}/15 correct answers!
+              </p>
               <img
                 src="/src/assets/logo.png"
                 alt="Badge"
@@ -124,6 +230,8 @@ export default function SunPage() {
             </div>
           </div>
         )}
+
+        {/* Score Modal */}
         {showScore && (
           <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
             <div className="bg-gray-800 text-white rounded-xl p-6 w-full max-w-md text-center">
@@ -139,6 +247,7 @@ export default function SunPage() {
           </div>
         )}
       </main>
+
       <Footer />
     </div>
   );
