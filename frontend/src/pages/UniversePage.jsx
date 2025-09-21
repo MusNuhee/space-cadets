@@ -66,6 +66,17 @@ export default function UniversePage() {
         <p className="text-lg mb-6 text-center">
           The universe is vast and mysterious, filled with galaxies, stars, planets, and more. Let's dive into the wonders of space!
         </p>
+        <div className="w-screen h-screen m-0 p-0">
+  <iframe
+    src="https://www.solarsystemscope.com/iframe"
+    className="w-full h-full border-2 border-[#0f5c6e]"
+    title="Solar System Scope"
+    frameBorder="0"
+    allowFullScreen
+  ></iframe>
+</div>
+
+
         <div className="mt-8 text-center">
           <button
             className="bg-blue-500 px-6 py-2 rounded font-bold text-white hover:bg-blue-600"
