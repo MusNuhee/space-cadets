@@ -142,7 +142,7 @@ export default function StarConstellationPage() {
                 <img
                   src={constellation.img}
                   alt={constellation.name}
-                  className="w-32 h-32 object-cover rounded-full mb-4 border-4 border-indigo-300"
+                  className="w-32 h-32 object-cover mb-4"
                 />
                 <span className="text-2xl font-bold mb-2">{constellation.name}</span>
               </button>
