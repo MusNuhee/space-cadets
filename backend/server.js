@@ -1,11 +1,28 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const multer = require("multer");
+const path = require("path");
 const User = require("./models/User");
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+// Connect to MongoDB
+mongoose.connect("mongodb://localhost:27017/space-cadets", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+// Multer setup for file uploads
+const storage = multer.diskStorage({
+  destination: "./uploads/",
+  filename: (req, file, cb) => {
+    cb(null, `${Date.now()}-${file.originalname}`);
+  },
+});
+const upload = multer({ storage });
 
 // Leaderboard API
 app.get("/api/leaderboard", async (req, res) => {
@@ -22,13 +39,22 @@ app.get("/api/leaderboard", async (req, res) => {
 // Update username
 app.put("/api/settings/username", async (req, res) => {
   const { userId, newUsername } = req.body;
+
   try {
-    await User.findByIdAndUpdate(userId, { username: newUsername });
-    res.json({ message: "Username updated successfully!" });
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    user.username = newUsername;
+    await user.save();
+
+    res.status(200).json({ message: "Username updated successfully", username: newUsername });
   } catch (error) {
-    res.status(500).json({ error: "Failed to update username" });
+    res.status(500).json({ message: "Failed to update username", error });
   }
 });
+
 
 // Update password
 app.put("/api/settings/password", async (req, res) => {
@@ -44,24 +70,35 @@ app.put("/api/settings/password", async (req, res) => {
 // Delete account
 app.delete("/api/settings/delete", async (req, res) => {
   const { userId } = req.body;
+
   try {
-    await User.findByIdAndDelete(userId);
-    res.json({ message: "Account deleted successfully!" });
+    const user = await User.findByIdAndDelete(userId); // Delete user from the database
+    if (!user) {
+      return res.status(404).json({ message: "User not found." });
+    }
+    res.json({ message: "Account deleted successfully." });
   } catch (error) {
-    res.status(500).json({ error: "Failed to delete account" });
+    console.error("Failed to delete account:", error);
+    res.status(500).json({ message: "Failed to delete account." });
   }
 });
 
 // Update profile picture
-app.put("/api/settings/profile-picture", async (req, res) => {
-  const { userId, profilePicture } = req.body;
+app.put("/api/settings/profile-picture", upload.single("profilePicture"), async (req, res) => {
+  const { userId } = req.body;
+  const profilePictureUrl = `/uploads/${req.file.filename}`;
+
   try {
-    await User.findByIdAndUpdate(userId, { profilePicture });
-    res.json({ message: "Profile picture updated successfully!" });
+    await User.findByIdAndUpdate(userId, { profilePicture: profilePictureUrl });
+    res.json({ message: "Profile picture updated successfully!", profilePictureUrl });
   } catch (error) {
-    res.status(500).json({ error: "Failed to update profile picture" });
+    console.error("Failed to update profile picture:", error);
+    res.status(500).json({ message: "Failed to update profile picture." });
   }
 });
+
+// Serve uploaded files
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Fetch login activity
 app.get("/api/settings/login-activity/:userId", async (req, res) => {
@@ -86,5 +123,7 @@ app.put("/api/settings/reminders", async (req, res) => {
 });
 
 // Start server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+const PORT = 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
