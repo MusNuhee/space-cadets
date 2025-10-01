@@ -47,7 +47,7 @@ export default function HomePage() {
       />
       <SearchBar data={data} />
 
-      <main className="flex-grow flex flex-wrap justify-center items-center gap-6 p-6">
+      <main className="flex-grow flex flex-col justify-center items-center gap-6 p-6">
         {[
           { label: "☀️ Sun", path: "/sun" },
           { label: "🌍 Earth", path: "/earth" },
@@ -60,7 +60,7 @@ export default function HomePage() {
         ].map(({ label, path }) => (
           <div
             key={path}
-            className="bg-gray-800/80 rounded-xl shadow-lg p-6 flex flex-col items-center w-48 h-40 justify-between hover:scale-105 transition-transform"
+            className="bg-gray-800/80 rounded-xl shadow-lg p-6 flex flex-col items-center w-full h-40 justify-between hover:scale-105 transition-transform"
           >
             <span className="text-3xl mb-2">{label}</span>
             <button
@@ -71,7 +71,6 @@ export default function HomePage() {
             </button>
           </div>
         ))}
-
         {/* Game Console Card */}
         <div className="w-full max-w-2xl mt-10 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 rounded-2xl shadow-2xl p-8 flex flex-col items-center justify-center border-4 border-blue-500">
           <span className="text-5xl mb-4">🎮</span>
