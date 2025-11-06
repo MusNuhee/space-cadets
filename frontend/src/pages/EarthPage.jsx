@@ -3,7 +3,7 @@ import SpaceBackground from "../components/SpaceBackground";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import SearchBar from "../components/SearchBar"; // Import SearchBar component
-
+//testing
 const facts = [
 	{
 		question: "🌍 What is Earth?",
