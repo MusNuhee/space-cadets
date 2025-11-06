@@ -1,12 +1,22 @@
 // src/pages/SunPage.jsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import SearchBar from "../components/SearchBar";
+import SpaceBackground from "../components/SpaceBackground"; 
+import SunHero from "../assets/sun.jpg"; 
 
 const sunFacts = [
-  { name: "Sun", description: "The Sun is the star at the center of our solar system. It provides light and heat necessary for life on Earth." },
-  { name: "Solar Energy", description: "The Sun's energy powers life on Earth and drives weather patterns." },
+  {
+    name: "Sun",
+    description:
+      "The Sun is the star at the center of our solar system. It provides light and heat necessary for life on Earth. It makes up 99.8% of the solar system’s mass!",
+  },
+  {
+    name: "Solar Energy",
+    description:
+      "The Sun's energy powers life on Earth, drives weather patterns, and supports photosynthesis in plants.",
+  },
 ];
 
 const sunQuizQuestions = [
@@ -34,112 +44,239 @@ export default function SunPage() {
   const [showBadge, setShowBadge] = useState(false);
   const [showScore, setShowScore] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [tab, setTab] = useState("overview");
+  const [stars, setStars] = useState([]);
+
+  // Generate floating stars
+  useEffect(() => {
+    const starArray = Array.from({ length: 60 }).map(() => ({
+      top: Math.random() * 100,
+      left: Math.random() * 100,
+      size: Math.random() * 2 + 1,
+      duration: Math.random() * 10 + 5,
+    }));
+    setStars(starArray);
+  }, []);
 
   const handleAnswer = (answer) => {
     setSelectedAnswer(answer);
     if (answer === sunQuizQuestions[currentQuestion].correct) {
-      setScore(score + 1);
+      setScore((prev) => prev + 1);
     }
     setTimeout(() => {
       if (currentQuestion < sunQuizQuestions.length - 1) {
-        setCurrentQuestion(currentQuestion + 1);
+        setCurrentQuestion((prev) => prev + 1);
         setSelectedAnswer(null);
       } else {
-        if (score + 1 >= 12) {
-          setShowBadge(true);
-        } else {
-          setShowScore(true);
-        }
+        if (score + 1 >= 6) setShowBadge(true);
+        else setShowScore(true);
         setShowQuiz(false);
       }
-    }, 1000); // Delay to show feedback
+    }, 1000);
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-yellow-200 to-orange-500">
-      <Header activePage="sun" />
-      <SearchBar data={sunFacts} />
-      <main className="flex-grow flex flex-col justify-center items-center text-black">
-        <h1 className="text-4xl font-bold mb-4">🌞 The Sun</h1>
-        <p className="text-lg max-w-xl text-center">
-          The Sun is the star at the center of our solar system. It provides the
-          light and heat necessary for life on Earth. It is a massive ball of
-          hot plasma, mostly hydrogen and helium, undergoing nuclear fusion.
-        </p>
-        <div className="mt-8 text-center">
-          <button
-            className="bg-yellow-500 px-6 py-2 rounded font-bold text-white hover:bg-yellow-600"
-            onClick={() => setShowQuiz(true)}
-          >
-            Start Quiz
-          </button>
-        </div>
-        {showQuiz && (
-          <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-            <div className="bg-gray-800 text-white rounded-xl p-6 w-full max-w-md relative">
-              <button
-                className="absolute top-2 right-2 text-gray-400 hover:text-white"
-                onClick={() => setShowQuiz(false)}
-              >
-                ✖
-              </button>
-              <h2 className="text-xl font-bold mb-4">Quiz Time!</h2>
-              <p className="text-lg mb-4">{sunQuizQuestions[currentQuestion].question}</p>
-              <div className="grid grid-cols-1 gap-4">
-                {sunQuizQuestions[currentQuestion].options.map((option, idx) => (
-                  <button
-                    key={idx}
-                    className={`px-4 py-2 rounded ${
-                      selectedAnswer === option
-                        ? option === sunQuizQuestions[currentQuestion].correct
-                          ? "bg-green-500 border-4 border-green-700"
-                          : "bg-red-500 border-4 border-red-700"
-                        : "bg-yellow-500 hover:bg-yellow-600"
-                    }`}
-                    onClick={() => handleAnswer(option)}
-                  >
-                    {option}
-                  </button>
-                ))}
+    <div className="relative flex flex-col min-h-screen text-white overflow-hidden">
+      {/* Floating Stars */}
+      {stars.map((star, i) => (
+        <div
+          key={i}
+          className="absolute rounded-full bg-white opacity-70 animate-pulse"
+          style={{
+            width: star.size,
+            height: star.size,
+            top: `${star.top}%`,
+            left: `${star.left}%`,
+            animationDuration: `${star.duration}s`,
+          }}
+        />
+      ))}
+
+      {/* Overlay for content */}
+      <div className="relative z-10 bg-black/40 min-h-screen flex flex-col">
+        <SpaceBackground />
+        <Header activePage="sun" />
+        <SearchBar data={sunFacts} />
+
+        <main className="flex-grow flex flex-col items-center px-6 relative z-10">
+          {/* 🌞 Hero Section with Background Image + Blend */}
+          <section className="relative w-full">
+          <div
+    className="relative flex flex-col md:flex-row items-center justify-center gap-12 w-full max-w-6xl py-20 mx-auto
+        bg-cover bg-center bg-no-repeat bg-blend-overlay bg-black/50"
+    style={{ backgroundImage: `url(${SunHero})`}}
+  >
+              
+              {/* Gradient fade to blend bottom into page */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black"></div>
+
+              <div className="relative z-10 flex-1 text-center md:text-left px-6">
+                <h1 className="text-5xl md:text-6xl font-extrabold text-yellow-400 mb-4 drop-shadow-lg">
+                  ☀️ The Sun
+                </h1>
+                <p className="text-lg md:text-xl text-gray-200 drop-shadow">
+                  The Sun provides energy, light, and warmth that makes life possible on Earth.
+                  Explore its layers, structure, and amazing phenomena!
+                </p>
               </div>
             </div>
-          </div>
-        )}
-        {showBadge && (
-          <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-            <div className="bg-gray-800 text-white rounded-xl p-6 w-full max-w-md text-center">
-              <h2 className="text-xl font-bold mb-4">🎉 Congratulations!</h2>
-              <p className="text-lg mb-4">You earned a badge for scoring {score}/15 correct answers!</p>
-              <img
-                src="/src/assets/logo.png"
-                alt="Badge"
-                className="w-32 h-32 object-cover rounded-full mx-auto mb-4"
-              />
-              <button
-                className="bg-green-500 px-6 py-2 rounded font-bold text-white hover:bg-green-600"
-                onClick={() => setShowBadge(false)}
-              >
-                Close
-              </button>
+          </section>
+
+          {/* Tabs Section */}
+          <section className="mt-8 w-full max-w-4xl">
+            <div className="flex justify-center gap-6 border-b border-gray-600">
+              {["overview", "layers", "importance", "fun"].map((t) => (
+                <button
+                  key={t}
+                  onClick={() => setTab(t)}
+                  className={`pb-2 text-lg capitalize ${
+                    tab === t
+                      ? "text-yellow-400 border-b-2 border-yellow-400 font-semibold drop-shadow"
+                      : "text-gray-400"
+                  } transition`}
+                >
+                  {t}
+                </button>
+              ))}
             </div>
-          </div>
-        )}
-        {showScore && (
-          <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-            <div className="bg-gray-800 text-white rounded-xl p-6 w-full max-w-md text-center">
-              <h2 className="text-xl font-bold mb-4">Your Score: {score}/15</h2>
-              <p className="text-lg mb-4">Try again next time to earn the badge!</p>
-              <button
-                className="bg-blue-500 px-6 py-2 rounded font-bold text-white hover:bg-blue-600"
-                onClick={() => setShowScore(false)}
-              >
-                Close
-              </button>
+            <div className="mt-6 text-gray-200 text-center md:text-left space-y-4">
+              {tab === "overview" && (
+                <p>
+                  The Sun is a massive sphere of hot plasma composed mainly of hydrogen and helium. Its gravity keeps planets in orbit, and it generates energy through <strong>nuclear fusion</strong>.
+                </p>
+              )}
+              {tab === "layers" && (
+                <ul className="list-disc ml-6 space-y-2">
+                  <li><strong>Core:</strong> Fusion occurs here, producing enormous energy.</li>
+                  <li><strong>Radiative Zone:</strong> Energy slowly moves outward via radiation.</li>
+                  <li><strong>Convective Zone:</strong> Hot plasma circulates, transporting energy to the surface.</li>
+                  <li><strong>Photosphere:</strong> Visible surface emitting light.</li>
+                  <li><strong>Chromosphere:</strong> Red-colored layer above the surface.</li>
+                  <li><strong>Corona:</strong> Outer atmosphere, visible during solar eclipses.</li>
+                </ul>
+              )}
+              {tab === "importance" && (
+                <p>
+                  The Sun provides light and warmth, drives weather and ocean currents, and powers photosynthesis. Without it, Earth would be lifeless and frozen.
+                </p>
+              )}
+              {tab === "fun" && (
+                <p>
+                  Fun Fact: The Sun is so massive that about 1.3 million Earths could fit inside it! Its gravity influences the orbits of all planets.
+                </p>
+              )}
             </div>
+          </section>
+
+          {/* Facts Section */}
+          <section className="mt-16 w-full max-w-6xl">
+            <h2 className="text-3xl font-bold text-yellow-400 mb-6 text-center">
+              🌟 Amazing Sun Facts
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {[
+                "Age: 4.6 billion years",
+                "Diameter: 1.39 million km",
+                "Surface temp: ~5,500 °C",
+                "Core temp: ~15 million °C",
+                "99.8% of Solar System's mass",
+                "Will become a Red Giant in ~5 billion years",
+                "Light takes ~8 minutes to reach Earth",
+                "Sunspots and solar flares affect space weather",
+              ].map((fact, i) => (
+                <div
+                  key={i}
+                  className="p-5 rounded-lg bg-white/10 border border-yellow-500 hover:bg-yellow-500/20 hover:scale-105 transition text-center"
+                >
+                  {fact}
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Quiz Section */}
+          <div className="mt-12 text-center">
+            <button
+              className="bg-yellow-500 px-6 py-2 rounded font-bold text-black hover:bg-yellow-600"
+              onClick={() => {
+                setShowQuiz(true);
+                setCurrentQuestion(0);
+                setScore(0);
+              }}
+            >
+              🎯 Start Sun Quiz
+            </button>
           </div>
-        )}
-      </main>
-      <Footer />
+
+          {/* Quiz Modal */}
+          {showQuiz && (
+            <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+              <div className="bg-gray-900 text-white rounded-xl p-6 w-full max-w-md relative">
+                <button
+                  className="absolute top-2 right-2 text-gray-400 hover:text-white"
+                  onClick={() => setShowQuiz(false)}
+                >
+                  ✖
+                </button>
+                <h2 className="text-xl font-bold mb-4">Quiz Time!</h2>
+                <p className="text-lg mb-4">{sunQuizQuestions[currentQuestion].question}</p>
+                <div className="grid grid-cols-1 gap-4">
+                  {sunQuizQuestions[currentQuestion].options.map((option, idx) => (
+                    <button
+                      key={idx}
+                      className={`px-4 py-2 rounded ${
+                        selectedAnswer === option
+                          ? option === sunQuizQuestions[currentQuestion].correct
+                            ? "bg-green-500 border-4 border-green-700"
+                            : "bg-red-500 border-4 border-red-700"
+                          : "bg-yellow-500 hover:bg-yellow-600 text-black"
+                      }`}
+                      onClick={() => handleAnswer(option)}
+                    >
+                      {option}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Badge and Score Modals */}
+          {showBadge && (
+            <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+              <div className="bg-gray-900 text-white rounded-xl p-6 w-full max-w-md text-center">
+                <h2 className="text-xl font-bold mb-4">🎉 Congratulations!</h2>
+                <p className="text-lg mb-4">
+                  You earned a badge for scoring {score}/{sunQuizQuestions.length} correct answers!
+                </p>
+                <button
+                  className="bg-green-500 px-6 py-2 rounded font-bold text-white hover:bg-green-600"
+                  onClick={() => setShowBadge(false)}
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          )}
+
+          {showScore && (
+            <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+              <div className="bg-gray-900 text-white rounded-xl p-6 w-full max-w-md text-center">
+                <h2 className="text-xl font-bold mb-4">Your Score: {score}/{sunQuizQuestions.length}</h2>
+                <p className="text-lg mb-4">Try again next time to earn the badge!</p>
+                <button
+                  className="bg-blue-500 px-6 py-2 rounded font-bold text-white hover:bg-blue-600"
+                  onClick={() => setShowScore(false)}
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          )}
+        </main>
+
+        <Footer />
+      </div>
     </div>
   );
 }
