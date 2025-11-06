@@ -29,6 +29,10 @@ export default function HomePage() {
     const now = Date.now();
     localStorage.setItem("lastVisit", now);
 
+    if(!localStorage.getItem("isLoggedIn") || localStorage.getItem("isLoggedIn") !== "true"){
+      navigate("/login");
+    }
+
     if (lastVisit) {
       const FIVE_DAYS = 5 * 24 * 60 * 60 * 1000;
       if (now - lastVisit > FIVE_DAYS) {

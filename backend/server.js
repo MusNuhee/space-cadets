@@ -6,14 +6,29 @@ const path = require("path");
 const User = require("./models/User");
 
 const app = express();
-app.use(cors());
+app.use(cors(
+  {
+    origin:"*"
+  }
+));
 app.use(express.json());
+const connectDB = async () => {
+  try {
+    await mongoose.connect("mongodb+srv://vinodexter001:Xys9drUYXTQK9gD9@vinojan007.crpoyxo.mongodb.net/?retryWrites=true&w=majority&appName=vinojan007");
+    console.log("✅ Connected to MongoDB");
+  } catch (error) {
+    console.error("❌ Failed to connect to MongoDB:", error.message);
+    process.exit(1);
+  }
+};
 
-// Connect to MongoDB
-mongoose.connect("mongodb://localhost:27017/space-cadets", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+
+
+// app.use(express.bodyParser());
+app.use(express.urlencoded({ extended: true }));
+
+
+connectDB()
 
 // Multer setup for file uploads
 const storage = multer.diskStorage({
@@ -23,6 +38,33 @@ const storage = multer.diskStorage({
   },
 });
 const upload = multer({ storage });
+
+
+app.post("/api/register", async (req, res) => {
+  const { firstName, lastName, dob, username, password } = req.body;
+
+  // Check if user already exists
+  const existingUser = await User.findOne({ username:username });
+  if (existingUser) {
+    return res.status(400).json({ error: "Username already taken" });
+  }
+
+  // Create new user
+  const newUser = new User({
+    firstName,
+    lastName,
+    dob,
+    username,
+    password,
+  });
+
+  try {
+    await newUser.save();
+    res.status(201).json({ message: "User registered successfully" });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to register user" });
+  }
+});
 
 // Leaderboard API
 app.get("/api/leaderboard", async (req, res) => {

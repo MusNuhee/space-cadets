@@ -6,62 +6,158 @@ import Footer from "../components/Footer";
 const constellations = [
   {
     name: "Aries",
-    fact: "Aries is a constellation representing a ram. It is visible in the night sky from April to May.",
+    fact: `
+      🌌 Represents: A ram (🐏)
+      ✨ Name: 'Aries' means 'the Ram' in Latin
+      📍 Location: Best seen in the Northern Hemisphere during autumn & early winter
+      ⭐ Brightest Stars: Hamal 🌟, Sheratan ✨, and Mesartim 💫
+      📖 Mythology: A magical ram saved two children, Phrixus and Helle, and its golden fleece became famous in the tale of Jason and the Argonauts
+      ♈ Zodiac: Aries is the first zodiac sign (March 21 – April 19). People born under Aries are brave 💪, adventurous 🌍, and energetic ⚡
+    `,
     img: "/src/assets/aries.png",
+    fact2: `
+      🐏 Ram in the Sky – Aries looks like a ram, but really it’s just a few stars in a bent line. You need imagination to see the shape!
+      🌟 Brightest Star – The star Hamal is the brightest in Aries. It’s about 66 light-years away—that means light takes 66 years to reach us!
+      🪐 Planets Found – Astronomers have discovered exoplanets (planets outside our Solar System) around some Aries stars.
+      ⏳ Very Old – People have known about Aries for thousands of years. It was important to Babylonians, Egyptians, and Greeks.
+      ☀️ First Point of Aries – Long ago, the Sun used to rise in Aries at the start of spring. That’s why Aries was called the “First Point of Aries.”
+      🔭 Not Super Bright – Aries is not the brightest constellation, but once you spot Hamal, you can connect the other stars easily.
+      ♈ Astrology Sign – Aries is the first zodiac sign. People born under Aries are often described as brave, energetic, and adventurous.
+      🛡️ Golden Fleece Story – The magical ram’s golden fleece became one of the most famous treasures in Greek mythology.
+      🌍 Best Time to See – You can see Aries most clearly between October and December in the Northern Hemisphere.
+    `,
   },
   {
     name: "Pisces",
-    fact: "Pisces represents two fish swimming in opposite directions. It is visible from February to March.",
+    fact: `
+      🌌 Represents: Two fish (🐟🐟) swimming in opposite directions
+      ✨ Name: 'Pisces' means 'the Fish' in Latin
+      📍 Location: Best seen in the Northern Hemisphere during winter
+      ⭐ Brightest Stars: Fum al Samakah 🌟, and Al Pherg 🌟
+      📖 Mythology: Represents Aphrodite and her son Eros, who transformed into fish to escape the monster Typhon
+      ♓ Zodiac: Pisces is the twelfth zodiac sign (February 19 – March 20). People born under Pisces are empathetic 💖, artistic 🎨, and intuitive 🔮
+    `,
     img: "/src/assets/pisces.png",
   },
   {
     name: "Leo",
-    fact: "Leo is a constellation representing a lion. It is visible in the night sky from July to August.",
+    fact: `
+      🌌 Represents: A lion (🦁)
+      ✨ Name: 'Leo' means 'the Lion' in Latin
+      📍 Location: Best seen in the Northern Hemisphere during spring
+      ⭐ Brightest Stars: Regulus 🌟, Denebola ✨, and Algieba 💫
+      📖 Mythology: Represents the Nemean Lion, defeated by Hercules in Greek mythology
+      ♌ Zodiac: Leo is the fifth zodiac sign (July 23 – August 22). People born under Leo are confident 🌟, creative 🎨, and charismatic ✨
+    `,
     img: "/src/assets/leo.png",
   },
   {
     name: "Scorpio",
-    fact: "Scorpio represents a scorpion and is visible in the night sky from October to November.",
+    fact: `
+      🌌 Represents: A scorpion (🦂)
+      ✨ Name: 'Scorpio' means 'the Scorpion' in Latin
+      📍 Location: Best seen in the Southern Hemisphere during winter
+      ⭐ Brightest Stars: Antares 🌟, Shaula ✨, and Sargas 💫
+      📖 Mythology: Represents the scorpion that killed Orion in Greek mythology
+      ♏ Zodiac: Scorpio is the eighth zodiac sign (October 23 – November 21). People born under Scorpio are passionate 🔥, determined 💪, and mysterious 🌌
+    `,
     img: "/src/assets/scorpio.png",
   },
   {
     name: "Capricorn",
-    fact: "Capricorn represents a sea goat and is visible in the night sky from December to January.",
+    fact: `
+      🌌 Represents: A sea goat (🐐🌊)
+      ✨ Name: 'Capricorn' means 'the Goat' in Latin
+      📍 Location: Best seen in the Southern Hemisphere during summer
+      ⭐ Brightest Stars: Deneb Algedi 🌟, Dabih ✨, and Alshat 💫
+      📖 Mythology: Represents the goat Amalthea, who nursed Zeus in Greek mythology
+      ♑ Zodiac: Capricorn is the tenth zodiac sign (December 22 – January 19). People born under Capricorn are disciplined 📚, ambitious 🚀, and practical 🛠️
+    `,
     img: "/src/assets/capricon.png",
   },
   {
     name: "Aquarius",
-    fact: "Aquarius represents the water bearer and is visible in the night sky from January to February.",
+    fact: `
+      🌌 Represents: The water bearer (💧)
+      ✨ Name: 'Aquarius' means 'the Water Carrier' in Latin
+      📍 Location: Best seen in the Northern Hemisphere during autumn
+      ⭐ Brightest Stars: Sadalmelik 🌟, Sadalsuud ✨, and Skat 💫
+      📖 Mythology: Represents Ganymede, the cupbearer to the gods in Greek mythology
+      ♒ Zodiac: Aquarius is the eleventh zodiac sign (January 20 – February 18). People born under Aquarius are innovative 💡, independent 🌍, and humanitarian 🤝
+    `,
     img: "/src/assets/aquaris.png",
   },
   {
     name: "Cancer",
-    fact: "Cancer represents a crab and is visible in the night sky from June to July.",
+    fact: `
+      🌌 Represents: A crab (🦀)
+      ✨ Name: 'Cancer' means 'the Crab' in Latin
+      📍 Location: Best seen in the Northern Hemisphere during spring
+      ⭐ Brightest Stars: Acubens 🌟, Altarf ✨, and Asellus Borealis 💫
+      📖 Mythology: Represents the crab sent by Hera to distract Hercules during his battle with the Hydra
+      ♋ Zodiac: Cancer is the fourth zodiac sign (June 21 – July 22). People born under Cancer are nurturing 💖, intuitive 🔮, and protective 🛡️
+    `,
     img: "/src/assets/cancer.png",
   },
   {
     name: "Gemini",
-    fact: "Gemini represents twins and is visible in the night sky from May to June.",
+    fact: `
+      🌌 Represents: Twins (👬)
+      ✨ Name: 'Gemini' means 'the Twins' in Latin
+      📍 Location: Best seen in the Northern Hemisphere during winter
+      ⭐ Brightest Stars: Castor 🌟 and Pollux ✨
+      📖 Mythology: Represents the twin brothers Castor and Pollux, who were immortalized in the stars by Zeus
+      ♊ Zodiac: Gemini is the third zodiac sign (May 21 – June 20). People born under Gemini are curious 🤔, adaptable 🌍, and communicative 🗣️
+    `,
     img: "/src/assets/gemini.png",
   },
   {
     name: "Libra",
-    fact: "Libra represents scales and is visible in the night sky from September to October.",
+    fact: `
+      🌌 Represents: Scales ⚖️
+      ✨ Name: 'Libra' means 'the Scales' in Latin
+      📍 Location: Best seen in the Northern Hemisphere during autumn
+      ⭐ Brightest Stars: Zubeneschamali 🌟 and Zubenelgenubi ✨
+      📖 Mythology: Represents the scales of justice held by Themis, the goddess of divine law
+      ♎ Zodiac: Libra is the seventh zodiac sign (September 23 – October 22). People born under Libra are diplomatic 🤝, charming ✨, and balanced ⚖️
+    `,
     img: "/src/assets/libra.png",
+    fact2:""
   },
   {
     name: "Sagittarius",
-    fact: "Sagittarius represents an archer and is visible in the night sky from November to December.",
+    fact: `
+      🌌 Represents: An archer (🏹)
+      ✨ Name: 'Sagittarius' means 'the Archer' in Latin
+      📍 Location: Best seen in the Southern Hemisphere during summer
+      ⭐ Brightest Stars: Kaus Australis 🌟, Nunki ✨, and Alnasl 💫
+      📖 Mythology: Represents the centaur Chiron, a skilled archer and healer in Greek mythology
+      ♐ Zodiac: Sagittarius is the ninth zodiac sign (November 22 – December 21). People born under Sagittarius are adventurous 🌍, optimistic 🌟, and philosophical 📚
+    `,
     img: "/src/assets/sagittarius.png",
   },
   {
     name: "Taurus",
-    fact: "Taurus represents a bull and is visible in the night sky from April to May.",
+    fact: `
+      🌌 Represents: A bull (🐂)
+      ✨ Name: 'Taurus' means 'the Bull' in Latin
+      📍 Location: Best seen in the Northern Hemisphere during spring
+      ⭐ Brightest Stars: Aldebaran 🌟, Elnath ✨, and Alcyone 💫
+      📖 Mythology: Represents the bull that carried Europa across the sea in Greek mythology
+      ♉ Zodiac: Taurus is the second zodiac sign (April 20 – May 20). People born under Taurus are reliable 🛠️, patient 🕰️, and grounded 🌍
+    `,
     img: "/src/assets/taurus.png",
   },
   {
     name: "Virgo",
-    fact: "Virgo represents a maiden and is visible in the night sky from August to September.",
+    fact: `
+      🌌 Represents: A maiden (👩)
+      ✨ Name: 'Virgo' means 'the Virgin' in Latin
+      📍 Location: Best seen in the Northern Hemisphere during summer
+      ⭐ Brightest Stars: Spica 🌟, Zavijava ✨, and Porrima 💫
+      📖 Mythology: Represents Demeter, the goddess of agriculture, or Astraea, the goddess of innocence
+      ♍ Zodiac: Virgo is the sixth zodiac sign (August 23 – September 22). People born under Virgo are analytical 🧠, practical 🛠️, and detail-oriented 📋
+    `,
     img: "/src/assets/virgo.png",
   },
 ];
@@ -149,7 +245,7 @@ export default function StarConstellationPage() {
             ))}
           </div>
         ) : (
-          <div className="flex flex-col sm:flex-row items-center sm:items-start justify-center gap-8 w-full max-w-5xl">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start justify-center gap-8 w-full max-w-">
             {/* Left Details */}
             <div className="bg-indigo-900/80 rounded-xl shadow-lg p-6 flex flex-col items-center sm:w-1/3">
               <h2 className="text-3xl font-bold mb-4">
@@ -165,7 +261,7 @@ export default function StarConstellationPage() {
               <img
                 src={constellations[selectedIndex].img}
                 alt={constellations[selectedIndex].name}
-                className="w-64 h-64 object-cover rounded-full border-4 border-indigo-300 shadow-lg"
+                className="w-auto h-70 object-cover shadow-lg"
               />
             </div>
 
@@ -173,8 +269,7 @@ export default function StarConstellationPage() {
             <div className="bg-indigo-900/80 rounded-xl shadow-lg p-6 flex flex-col items-center sm:w-1/3">
               <h2 className="text-3xl font-bold mb-4">Fun Fact</h2>
               <p className="text-lg text-indigo-200">
-                Did you know? {constellations[selectedIndex].name} is one of the
-                most recognizable constellations in the night sky!
+                {constellations[selectedIndex].fact2}        
               </p>
             </div>
           </div>
