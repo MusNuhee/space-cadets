@@ -200,7 +200,7 @@ export default function NewTechnologiesPage() {
 				}
 				setShowQuiz(false);
 			}
-		}, 1000); // Delay to show feedback
+		}, 1000); // Delay to show feedback test
 	};
 
 	return (
