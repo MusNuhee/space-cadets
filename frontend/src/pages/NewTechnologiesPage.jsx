@@ -209,27 +209,15 @@ export default function NewTechnologiesPage() {
 			<Header activePage="newtechnologies" />
 			<SearchBar data={technologies} />
 			<main className="flex-grow flex flex-col items-center justify-center p-4">
-				<h1 className="text-4xl font-bold mb-6 text-blue-300 text-center">
-					🚀 New Space Technologies!
-				</h1>
-				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-5xl">
-					{technologies.map((tech, idx) => (
-						<div
-							key={idx}
-							className="bg-blue-900/80 rounded-xl shadow-lg p-6 flex flex-col items-center hover:bg-blue-700 transition-transform border-2 border-blue-400"
-						>
-							<img
-								src={tech.img}
-								alt={tech.name}
-								className="w-32 h-32 object-cover rounded-full mb-4 border-4 border-blue-300"
-							/>
-							<span className="text-2xl font-bold mb-2">{tech.name}</span>
-							<span className="text-lg mt-2 text-blue-200">
-								{tech.description}
-							</span>
-						</div>
-					))}
-				</div>
+				{/* Edit */}
+			<>
+			
+			
+			
+			
+			
+			
+			</>	
 				<div className="mt-8 text-center">
 					<button
 						className="bg-green-500 px-6 py-2 rounded font-bold text-white hover:bg-green-600"
