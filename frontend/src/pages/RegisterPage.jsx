@@ -32,7 +32,7 @@ export default function RegisterPage() {
     const username = generateUsername(firstName, lastName);
 
     // Load existing users from localStorage
-    // const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+     const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
 
     // Create new user
     const newUser = {
@@ -45,11 +45,11 @@ export default function RegisterPage() {
     };
 
     // Save back to localStorage
-    // localStorage.setItem("users", JSON.stringify([...existingUsers, newUser]));
+    localStorage.setItem("users", JSON.stringify([...existingUsers, newUser]));
 
     // Save login state right after registration
-    // localStorage.setItem("isLoggedIn", "true");
-    // localStorage.setItem("username", username);
+     localStorage.setItem("isLoggedIn", "true");
+    localStorage.setItem("username", username);
 
     const res = await axios.post("http://localhost:5000/api/register", newUser);
     if(res.status !== 200){
