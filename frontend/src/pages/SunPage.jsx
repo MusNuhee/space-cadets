@@ -122,6 +122,241 @@ export default function SunPage() {
             </div>
           </section>
 
+    {/* --- Info Section: Like the screenshot --- */}
+<section className="relative z-10 py-16 w-full max-w-6xl mx-auto px-6">
+  {/* Header icons */}
+  <div className="flex flex-wrap justify-center gap-8 mb-10 text-sm text-gray-300">
+    <div className="flex items-center gap-3 max-w-[180px]">
+      <span className="text-yellow-400 text-2xl">☀️</span>
+      <p>The center of our system</p>
+    </div>
+
+    <div className="flex items-center gap-3 max-w-[180px]">
+      <span className="text-yellow-400 text-2xl">🌌</span>
+      <p>An important part of the cosmos</p>
+    </div>
+
+    <div className="flex items-center gap-3 max-w-[180px]">
+      <span className="text-yellow-400 text-2xl">🔭</span>
+      <p>Constantly being studied</p>
+    </div>
+
+    <div className="flex items-center gap-3 max-w-[180px]">
+      <span className="text-yellow-400 text-2xl">🌦️</span>
+      <p>Affects the weather</p>
+    </div>
+  </div>
+
+  {/* Main content + stats side by side */}
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20 items-center">
+    {/* LEFT COLUMN - Main description with scroll */}
+    <div className="text-gray-200 space-y-4 overflow-y-auto h-64 pr-4  rounded-lg scrollbar-thin scrollbar-thumb-blue-200 scrollbar-track-yellow-800">
+      <h2 className="text-3xl font-bold text-yellow-400 tracking-widest uppercase top-0 bg-black/70 py-1">
+        THE MAIN
+      </h2>
+      <p>
+        There are many fascinating facts about the Sun — our life-giving star. Entire
+        scientific journals and countless research papers explore its energy,
+        composition, and mysteries that still remain unsolved.
+      </p>
+      <p>
+        The Sun’s surface, known as the photosphere, is not solid but rather a layer
+        of gas about 500 kilometers thick. It glows brightly because of the
+        incredible heat produced by nuclear fusion occurring deep in its core.
+      </p>
+      <p>
+        In this section, you’ll learn in simple terms how our main star — the Sun —
+        works, and why it is the most important celestial body for life on Earth.
+      </p>
+      <p>
+        Every second, the Sun converts about 600 million tons of hydrogen into helium,
+        releasing energy that sustains all life on our planet.
+      </p>
+      <p>
+        The Sun may seem constant, but it’s actually in continuous motion — rotating,
+        flaring, and shaping the space environment around it. Its magnetic activity
+        drives solar storms and auroras on Earth.
+      </p>
+      <p>
+        Scientists use advanced telescopes and spacecraft to monitor solar activity,
+        helping to protect satellites and communication systems from solar radiation.
+      </p>
+      <p>
+        Understanding the Sun helps us understand every star in the universe — from
+        their birth to their final stages as white dwarfs, neutron stars, or black
+        holes.
+      </p>
+    </div>
+
+    {/* RIGHT COLUMN - Stats */}
+    <div className="grid grid-cols-2 gap-8 text-center md:text-right">
+      <div>
+        <h3 className="text-5xl font-bold text-yellow-400">4.6</h3>
+        <p className="text-gray-400 text-sm uppercase">Billion Years Old</p>
+      </div>
+      <div>
+        <h3 className="text-5xl font-bold text-yellow-400">250</h3>
+        <p className="text-gray-400 text-sm uppercase">Million Years (Revolution)</p>
+      </div>
+      <div>
+        <h3 className="text-5xl font-bold text-yellow-400">110×</h3>
+        <p className="text-gray-400 text-sm uppercase">Larger Than Earth</p>
+      </div>
+      <div>
+        <h3 className="text-5xl font-bold text-yellow-400">15</h3>
+        <p className="text-gray-400 text-sm uppercase">Million °C Core Temp</p>
+      </div>
+    </div>
+  </div>
+
+
+  {/* Important events */}
+  <div>
+    <h2 className="text-2xl font-bold text-yellow-400 mb-2 uppercase">Important Events</h2>
+    <p className="text-lg font-semibold text-gray-300 mb-4 uppercase">The Main News For Today</p>
+    <p className="text-gray-400 mb-10">
+      For almost three years, the only seismic waves that NASA's InSight recorded were those propagated from the deep
+      interior of Mars. However, on December 24, 2021, a meteorite impact on Mars caused unique waves that spread across
+      the planet’s surface — offering new insights into its structure.
+    </p>
+
+    {/* Image cards grid */}
+    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="bg-white/10 rounded-xl overflow-hidden hover:scale-105 transition">
+        <img
+          src="/images/orion.jpg"
+          alt="NASA prepares Orion capsules"
+          className="w-full h-40 object-cover"
+        />
+        <p className="p-3 text-sm text-center text-gray-300">NASA prepares Orion capsules</p>
+      </div>
+      <div className="bg-white/10 rounded-xl overflow-hidden hover:scale-105 transition">
+        <img
+          src="/images/solar-orbiter.jpg"
+          alt="Solar Orbiter"
+          className="w-full h-40 object-cover"
+        />
+        <p className="p-3 text-sm text-center text-gray-300">Solar Orbiter</p>
+      </div>
+      <div className="bg-white/10 rounded-xl overflow-hidden hover:scale-105 transition">
+        <img
+          src="/images/smiling-sun.jpg"
+          alt="Smiling Sun"
+          className="w-full h-40 object-cover"
+        />
+        <p className="p-3 text-sm text-center text-gray-300">Smiling Sun</p>
+      </div>
+      <div className="bg-white/10 rounded-xl overflow-hidden hover:scale-105 transition">
+        <img
+          src="/images/mars-impact.jpg"
+          alt="Scientists analyzing Mars waves"
+          className="w-full h-40 object-cover"
+        />
+        <p className="p-3 text-sm text-center text-gray-300">
+          Scientists from ETH Zurich analyzed the measurements
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  {/* --- Relative to the Earth Section --- */}
+<section className="relative z-10 py-20 w-full max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+  {/* LEFT SIDE - Text Content */}
+  <div className="text-gray-200 space-y-5">
+    <h2 className="text-3xl font-bold text-yellow-400 tracking-widest uppercase">Relative to the Earth</h2>
+    <p>
+      According to the spectral classification, the Sun belongs to the 
+      <span className="text-yellow-400 font-semibold"> G2V type (yellow dwarf)</span>. 
+    </p>
+    <p>
+      The average density of the Sun is <span className="text-yellow-400 font-semibold">1.4 g/cm³</span>, 
+      which is about 1.4 times that of water.
+    </p>
+    <p>
+      The effective surface temperature of the Sun is approximately 
+      <span className="text-yellow-400 font-semibold"> 5780 Kelvin</span>, 
+      radiating immense energy that sustains life on Earth.
+    </p>
+
+    {/* Small icons info */}
+    <div className="grid grid-cols-2 gap-6 pt-6 text-sm text-gray-300">
+      {/* 1 */}
+      <div className="flex items-start gap-3 p-3 rounded-xl hover:bg-orange-400/10 transition-all duration-300">
+        <span className="text-yellow-400 text-2xl">🌘</span>
+        <div>
+          <h3 className="text-yellow-400 font-semibold">Eclipses</h3>
+          <p className="leading-tight">Visible from Earth</p>
+        </div>
+      </div>
+
+      {/* 2 */}
+      <div className="flex items-start gap-3  p-3 rounded-xl hover:bg-orange-400/10 transition-all duration-300">
+        <span className="text-yellow-400 text-2xl">🌐</span>
+        <div>
+          <h3 className="text-yellow-400 font-semibold">Solar System</h3>
+          <p className="leading-tight">Part of cosmic web</p>
+        </div>
+      </div>
+
+      {/* 3 */}
+      <div className="flex items-start gap-3  p-3 rounded-xl hover:bg-orange-400/10 transition-all duration-300">
+        <span className="text-yellow-400 text-2xl">🛰️</span>
+        <div>
+          <h3 className="text-yellow-400 font-semibold">Satellites</h3>
+          <p className="leading-tight">Orbit and study the Sun</p>
+        </div>
+      </div>
+
+      {/* 4 */}
+      <div className="flex items-start gap-3  p-3 rounded-xl hover:bg-orange-400/10 transition-all duration-300">
+        <span className="text-yellow-400 text-2xl">⚡</span>
+        <div>
+          <h3 className="text-yellow-400 font-semibold">Energy Source</h3>
+          <p className="leading-tight">Powers life and industry</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+
+
+
+  {/* RIGHT SIDE - Image & Data */}
+  <div className="relative flex justify-center items-center">
+    {/* Background glow */}
+    <div className="absolute w-80 h-80 bg-yellow-500/20 blur-3xl rounded-full"></div>
+
+    {/* Main image */}
+    <img
+      src="/images/sun-earth.jpg"
+      alt="Sun and Earth"
+      className="relative z-10 w-full max-w-md rounded-full object-cover shadow-lg"
+    />
+
+    {/* Overlayed text data */}
+    <div className="absolute bottom-8 left-4 text-gray-200 text-sm">
+      <p className="uppercase tracking-wide text-yellow-400 font-semibold">
+        The Average Distance From Earth
+      </p>
+      <p>is 1.496×10¹¹ m (8.31 light-minutes)</p>
+      <p>1 A.U.</p>
+    </div>
+
+    <div className="absolute top-6 right-4 text-right text-gray-200 text-sm">
+      <p className="uppercase tracking-wide text-yellow-400 font-semibold">
+        The Mass of the Sun
+      </p>
+      <p>
+        M☉ = (1.98847 ± 0.00007) × 10³⁰ kg
+      </p>
+      <p>99.86% of the total mass of the Solar System</p>
+    </div>
+  </div>
+</section>
+
+
           {/* Tabs Section */}
           <section className="mt-8 w-full max-w-4xl">
             <div className="flex justify-center gap-6 border-b border-gray-600">
@@ -168,31 +403,7 @@ export default function SunPage() {
             </div>
           </section>
 
-          {/* Facts Section */}
-          <section className="mt-16 w-full max-w-6xl">
-            <h2 className="text-3xl font-bold text-yellow-400 mb-6 text-center">
-              🌟 Amazing Sun Facts
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {[
-                "Age: 4.6 billion years",
-                "Diameter: 1.39 million km",
-                "Surface temp: ~5,500 °C",
-                "Core temp: ~15 million °C",
-                "99.8% of Solar System's mass",
-                "Will become a Red Giant in ~5 billion years",
-                "Light takes ~8 minutes to reach Earth",
-                "Sunspots and solar flares affect space weather",
-              ].map((fact, i) => (
-                <div
-                  key={i}
-                  className="p-5 rounded-lg bg-white/10 border border-yellow-500 hover:bg-yellow-500/20 hover:scale-105 transition text-center"
-                >
-                  {fact}
-                </div>
-              ))}
-            </div>
-          </section>
+         
 
           {/* Quiz Section */}
           <div className="mt-12 text-center">
