@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import SearchBar from "../components/SearchBar";
 
+
 const technologies = [
 	{
 		name: "Mars Rover",
@@ -308,7 +309,7 @@ export default function NewTechnologiesPage() {
 
 
 
-	 <div className="relative min-h-screen bg-gradient-to-b from-black via-blue-900 to-black text-white p-8 overflow-hidden">
+	 <div className="relative min-h-screen bg-gradient-to-b from-black via-blue-900 to-black text-white  p-8 overflow-hidden">
       {/* Stars */}
       <div className="absolute top-10 left-20 w-1 h-1 bg-white rounded-full opacity-70 animate-pulse"></div>
       <div className="absolute top-1/3 left-1/2 w-1 h-1 bg-white rounded-full opacity-70 animate-ping"></div>
@@ -509,18 +510,113 @@ export default function NewTechnologiesPage() {
       `}</style>
     </div>
 			
+			 {/* Common Heading */}
+  <h1 className="text-4xl md:text-3xl font-bold mb-8 animate-glow mt-8">
+    🚀 New Space Technology Images
+  </h1>
 			
+ 
+		<div className="flex flex-wrap gap-6 p-8 text-white justify-center">
 			
+  {/* 1. Reusable Rockets */}
+  <div className="flex flex-col bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-2xl w-60 animate-slideInLeft delay-0">
+    <img src="/src/assets/1. Reusable Rockets.jpg" alt="Reusable Rockets" className="w-50 mb-3 animate-bounce" />
+    <h2 className="text-xl font-semibold mb-2">1. Reusable Rockets</h2>
+  </div>
+
+  {/* 2. Small Satellites */}
+  <div className="flex flex-col bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-2xl w-60 animate-slideInRight delay-100">
+    <img src="/src/assets/small.webp" alt="Small Satellites" className="w-50 mb-3 animate-pulse" />
+    <h2 className="text-xl font-semibold mb-2">2. Small Satellites</h2>
+  </div>
+
+  {/* 3. AI and Robotics */}
+  <div className="flex flex-col bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-2xl w-60 animate-slideInLeft delay-200">
+    <img src="/src/assets/AI and Robotics in Space.webp" alt="AI Robotics" className="w-50 mb-3 animate-bounce" />
+    <h2 className="text-xl font-semibold mb-2">3. AI and Robotics in Space</h2>
+  </div>
+
+  {/* 4. Solar Sail */}
+  <div className="flex flex-col bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-2xl w-60 animate-slideInRight delay-300">
+    <img src="/src/assets/Solar Sail Technology.jpg" alt="Solar Sail" className="w-50 mb-3 animate-pulse" />
+    <h2 className="text-xl font-semibold mb-2">4. Solar Sail Technology</h2>
+  </div>
+
+  {/* 5. 3D Printing */}
+  <div className="flex flex-col bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-2xl w-60 animate-slideInLeft delay-400">
+    <img src="/src/assets/3D Printing in Space.jpg" alt="3D Printing" className="w-50 mb-3 animate-bounce" />
+    <h2 className="text-xl font-semibold mb-2">5. 3D Printing in Space</h2>
+  </div>
+
+  {/* 6. Lunar & Mars Bases */}
+  <div className="flex flex-col bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-2xl w-60 animate-slideInRight delay-500">
+    <img src="/src/assets/Lunar and Mars Bases.webp" alt="Lunar Mars Bases" className="w-50 mb-3 animate-pulse" />
+    <h2 className="text-xl font-semibold mb-2">6. Lunar & Mars Bases</h2>
+  </div>
+
+  {/* 7. Space Internet */}
+  <div className="flex flex-col bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-2xl w-60 animate-slideInLeft delay-600">
+    <img src="/src/assets/Space Internet (Starlink).webp" alt="Space Internet" className="w-50 mb-3 animate-pulse" />
+    <h2 className="text-xl font-semibold mb-2">7. Space Internet (Starlink)</h2>
+  </div>
+
+  {/* 8. Space Mining */}
+  <div className="flex flex-col bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-2xl w-60 animate-slideInRight delay-700">
+    <img src="/src/assets/Space Mining.jpg" alt="Space Mining" className="w-50 mb-3 animate-bounce" />
+    <h2 className="text-xl font-semibold mb-2">8. Space Mining</h2>
+  </div>
+
+  {/* 9. Quantum Communication */}
+  <div className="flex flex-col bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-2xl w-60 animate-slideInLeft delay-800">
+    <img src="/src/assets/Quantum Communication.jpg" alt="Quantum Communication" className="w-50 mb-3 animate-pulse" />
+    <h2 className="text-xl font-semibold mb-2">9. Quantum Communication</h2>
+  </div>
+
+  {/* 10. Hypersonic & Nuclear Propulsion */}
+  <div className="flex flex-col bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-2xl w-60 animate-slideInRight delay-900">
+    <img src="/src/assets/Hypersonic and Nuclear Propulsion.webp" alt="Hypersonic Nuclear Propulsion" className="w-50 mb-3 animate-bounce" />
+    <h2 className="text-xl font-semibold mb-2">10. Hypersonic & Nuclear Propulsion</h2>
+  </div>
+
+  {/* Animations */}
+  <style jsx>{`
+    @keyframes slideInLeft {
+      0% { opacity: 0; transform: translateX(-100px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes slideInRight {
+      0% { opacity: 0; transform: translateX(100px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    .animate-slideInLeft { animation: slideInLeft 0.8s ease forwards; }
+    .animate-slideInRight { animation: slideInRight 0.8s ease forwards; }
+
+    .delay-0 { animation-delay: 0s; }
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+    .delay-500 { animation-delay: 0.5s; }
+    .delay-600 { animation-delay: 0.6s; }
+    .delay-700 { animation-delay: 0.7s; }
+    .delay-800 { animation-delay: 0.8s; }
+    .delay-900 { animation-delay: 0.9s; }
+  `}</style>
+</div>
+
+
 			
 			
 			
 			
 				<div className="mt-8 text-center">
 					<button
-						className="bg-green-500 px-6 py-2 rounded font-bold text-white hover:bg-green-600"
+						className="bg-green-500 px-6 py-2 rounded font-bold text-white hover:bg-green-400"
 						onClick={() => setShowQuiz(true)}
 					>
-						Start Quiz
+						🚀 Start Quiz
 					</button>
 				</div>
 				{showQuiz && (
