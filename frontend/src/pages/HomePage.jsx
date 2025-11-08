@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import NotificationModal from "../components/NotificationModal";
 import AccountModal from "../components/AccountModal";
 import SearchBar from "../components/SearchBar";
+import SpaceBackground from '../components/SpaceBackground';
 
 const data = [
   { name: "Sun", img: "/src/assets/logo.png", description: "Explore the Sun" },
@@ -242,7 +243,7 @@ export default function HomePage() {
             Let's Play!
           </button>
         </div>
-      </section>
+      </main>
 
       <Footer />
 
