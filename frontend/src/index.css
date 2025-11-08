@@ -79,5 +79,25 @@
 }
 
 
+@keyframes floatSlow {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes spinSlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-float-slow {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+.animate-spin-slow:hover {
+  animation: spinSlow 6s linear infinite;
+}
+
+
 
 
