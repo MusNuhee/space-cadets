@@ -211,82 +211,102 @@ export default function NewTechnologiesPage() {
 			<main className="flex-grow flex flex-col items-center justify-center p-4">
 				{/* Edit */}
 
-			<div className="flex flex-1 items-center justify-center h-screen bg-transparant text-white">
-  <h1 className="text-5xl font-bold tracking-wider text-center animate-slideGlow">
-    🚀 Space New Technology
+
+  <div className="flex flex-col items-center justify-center  text-cyan-300 p-8">
+  {/* Animated Title */}
+  <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-glow text-center">
+    🚀 New Space Technology
   </h1>
 
+  {/* Animated Subtitle */}
+  <p className="text-xl md:text-2xl text-gray-300 text-center max-w-2xl animate-fadeIn">
+    Discover the latest innovations in space travel, satellites, AI robotics, and futuristic exploration.
+  </p>
+
+  {/* Inline Animation Styles */}
   <style jsx>{`
-    @keyframes slideGlow {
-      0% {
-        opacity: 0;
-        transform: translateY(-50px);
-        text-shadow: 0 0 0px #00bcd4;
+    /* Glow effect for title */
+    @keyframes glow {
+      0%, 100% {
+        text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
       }
       50% {
-        opacity: 1;
-        transform: translateY(0px);
-        text-shadow: 0 0 20px #00bcd4;
-      }
-      100% {
-        text-shadow: 0 0 10px #00bcd4;
+        text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #00ffff;
       }
     }
+    .animate-glow {
+      animation: glow 2s ease-in-out infinite;
+    }
 
-    .animate-slideGlow {
-      animation: slideGlow 1.5s ease-out forwards;
+    /* Fade in for subtitle */
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 2s ease forwards;
     }
   `}</style>
 </div>
- <div className="flex flex-1 items-center justify-center min-h-screen bg-transparant text-white">
-      {/* Glass Transparent Box */}
-      <div className="relative bg-white/2 backdrop-blur-sm border border-white/20 rounded-2xl p-8 max-w-lg text-center shadow-lg animate-fadeIn">
-        <h1 className="text-3xl font-bold mb-4">🪐 What is New Space Technology?</h1>
-        <p className="text-lg leading-relaxed">
-          New space technology means new machines and tools that help people go to space,
-          study planets, and live in space more easily and safely.
-        </p>
 
-        {/* Cartoon Rocket Animation */}
-        <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2">
-          <div className="text-6xl animate-rocket">🚀</div>
+
+
+ <div className="flex flex-col items-center justify-center min-h-screen  text-white overflow-hidden">
+  {/* Glass Transparent Box */}
+  <div className="relative bg-transparant backdrop-blur border border-white/20 rounded-2xl p-8 max-w-lg text-center shadow-lg animate-fadeIn">
+    <h1 className="text-3xl font-bold mb-4">🪐 What is New Space Technology?</h1>
+    <p className="text-lg leading-relaxed">
+      New space technology means new machines and tools that help people go to space,
+      study planets, and live in space more easily and safely.
+    </p>
+
+    {/* Cartoon Rocket Animation */}
+    <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2">
+      {/* Rocket */}
+      <div className="relative text-6xl animate-rocket">
+        🚀
+        {/* Smoke / Stars Trail */}
+        <div className="absolute -bottom-8 left-1/2 -translate-x-1/2">
+          {[...Array(5)].map((_, i) => (
+            <span
+              key={i}
+              className="block w-1 h-1 bg-white rounded-full opacity-70 animate-trail"
+              style={{ animationDelay: `${i * 0.2}s` }}
+            ></span>
+          ))}
         </div>
       </div>
-
-      {/* Inline Animation Styles */}
-      <style jsx>{`
-        @keyframes fadeIn {
-          0% {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes rocketFly {
-          0% {
-            transform: translateX(-50%) translateY(0) rotate(0deg);
-          }
-          50% {
-            transform: translateX(-50%) translateY(-40px) rotate(-10deg);
-          }
-          100% {
-            transform: translateX(-50%) translateY(0) rotate(0deg);
-          }
-        }
-
-        .animate-fadeIn {
-          animation: fadeIn 1s ease-out forwards;
-        }
-
-        .animate-rocket {
-          animation: rocketFly 1.5s ease-in-out infinite;
-        }
-      `}</style>
     </div>
+  </div>
+
+  {/* Inline Animation Styles */}
+  <style jsx>{`
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes rocketFly {
+      0% { transform: translateX(-50%) translateY(0) rotate(0deg); }
+      25% { transform: translateX(-50%) translateY(-40px) rotate(10deg); }
+      50% { transform: translateX(-50%) translateY(-60px) rotate(-10deg); }
+      75% { transform: translateX(-50%) translateY(-40px) rotate(5deg); }
+      100% { transform: translateX(-50%) translateY(0) rotate(0deg); }
+    }
+
+    @keyframes trail {
+      0% { opacity: 0.8; transform: translateY(0) scale(1); }
+      50% { opacity: 0.4; transform: translateY(10px) scale(0.8); }
+      100% { opacity: 0; transform: translateY(20px) scale(0.6); }
+    }
+
+    .animate-fadeIn { animation: fadeIn 1s ease-out forwards; }
+    .animate-rocket { animation: rocketFly 3s ease-in-out infinite; }
+    .animate-trail { animation: trail 1s ease-in-out infinite; }
+  `}</style>
+</div>
+
+
 
 	 <div className="relative min-h-screen bg-gradient-to-b from-black via-blue-900 to-black text-white p-8 overflow-hidden">
       {/* Stars */}
