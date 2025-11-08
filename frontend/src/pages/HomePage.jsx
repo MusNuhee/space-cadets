@@ -7,6 +7,7 @@ import NotificationModal from "../components/NotificationModal";
 import AccountModal from "../components/AccountModal";
 import SearchBar from "../components/SearchBar";
 
+
 const data = [
   { name: "Sun", img: "/src/assets/logo.png", description: "Explore the Sun" },
   { name: "Earth", img: "/src/assets/logo.png", description: "Explore the Earth" },
