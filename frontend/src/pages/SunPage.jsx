@@ -4,7 +4,12 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import SearchBar from "../components/SearchBar";
 import SpaceBackground from "../components/SpaceBackground"; 
-import SunHero from "../assets/sun.jpg"; 
+import SunHero from "../assets/sun.jpg";
+import orion from "../assets/orion.png";
+import solarorbiter from "../assets/solarorbiter.png";
+import smilingsun from "../assets/smilingsun.png";
+
+
 
 const sunFacts = [
   {
@@ -223,35 +228,35 @@ export default function SunPage() {
     {/* Image cards grid */}
     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
       <div className="bg-white/10 rounded-xl overflow-hidden hover:scale-105 transition">
-        <img
-          src="/images/orion.jpg"
-          alt="NASA prepares Orion capsules"
-          className="w-full h-40 object-cover"
-        />
+      <img
+        src={orion} // Use the imported variable
+        alt="NASA prepares Orion capsules"
+        className="w-full h-40 object-cover"
+      />
         <p className="p-3 text-sm text-center text-gray-300">NASA prepares Orion capsules</p>
       </div>
       <div className="bg-white/10 rounded-xl overflow-hidden hover:scale-105 transition">
-        <img
-          src="/images/solar-orbiter.jpg"
-          alt="Solar Orbiter"
-          className="w-full h-40 object-cover"
-        />
+      <img
+        src={solarorbiter} // Use the imported variable
+        alt="NASA prepares Orion capsules"
+        className="w-full h-40 object-cover"
+      /> 
         <p className="p-3 text-sm text-center text-gray-300">Solar Orbiter</p>
       </div>
       <div className="bg-white/10 rounded-xl overflow-hidden hover:scale-105 transition">
-        <img
-          src="/images/smiling-sun.jpg"
-          alt="Smiling Sun"
-          className="w-full h-40 object-cover"
-        />
+      <img
+        src={smilingsun} // Use the imported variable
+        alt="NASA prepares Orion capsules"
+        className="w-full h-40 object-cover"
+      />
         <p className="p-3 text-sm text-center text-gray-300">Smiling Sun</p>
       </div>
       <div className="bg-white/10 rounded-xl overflow-hidden hover:scale-105 transition">
-        <img
-          src="/images/mars-impact.jpg"
-          alt="Scientists analyzing Mars waves"
-          className="w-full h-40 object-cover"
-        />
+      <img
+        src={orion} // Use the imported variable
+        alt="NASA prepares Orion capsules"
+        className="w-full h-40 object-cover"
+      />
         <p className="p-3 text-sm text-center text-gray-300">
           Scientists from ETH Zurich analyzed the measurements
         </p>
@@ -260,77 +265,17 @@ export default function SunPage() {
   </div>
 </section>
 
-  {/* --- Relative to the Earth Section --- */}
+ {/* --- Relative to the Earth Section (Image Left, Text Right) --- */}
 <section className="relative z-10 py-20 w-full max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-  {/* LEFT SIDE - Text Content */}
-  <div className="text-gray-200 space-y-5">
-    <h2 className="text-3xl font-bold text-yellow-400 tracking-widest uppercase">Relative to the Earth</h2>
-    <p>
-      According to the spectral classification, the Sun belongs to the 
-      <span className="text-yellow-400 font-semibold"> G2V type (yellow dwarf)</span>. 
-    </p>
-    <p>
-      The average density of the Sun is <span className="text-yellow-400 font-semibold">1.4 g/cm³</span>, 
-      which is about 1.4 times that of water.
-    </p>
-    <p>
-      The effective surface temperature of the Sun is approximately 
-      <span className="text-yellow-400 font-semibold"> 5780 Kelvin</span>, 
-      radiating immense energy that sustains life on Earth.
-    </p>
-
-    {/* Small icons info */}
-    <div className="grid grid-cols-2 gap-6 pt-6 text-sm text-gray-300">
-      {/* 1 */}
-      <div className="flex items-start gap-3 p-3 rounded-xl hover:bg-orange-400/10 transition-all duration-300">
-        <span className="text-yellow-400 text-2xl">🌘</span>
-        <div>
-          <h3 className="text-yellow-400 font-semibold">Eclipses</h3>
-          <p className="leading-tight">Visible from Earth</p>
-        </div>
-      </div>
-
-      {/* 2 */}
-      <div className="flex items-start gap-3  p-3 rounded-xl hover:bg-orange-400/10 transition-all duration-300">
-        <span className="text-yellow-400 text-2xl">🌐</span>
-        <div>
-          <h3 className="text-yellow-400 font-semibold">Solar System</h3>
-          <p className="leading-tight">Part of cosmic web</p>
-        </div>
-      </div>
-
-      {/* 3 */}
-      <div className="flex items-start gap-3  p-3 rounded-xl hover:bg-orange-400/10 transition-all duration-300">
-        <span className="text-yellow-400 text-2xl">🛰️</span>
-        <div>
-          <h3 className="text-yellow-400 font-semibold">Satellites</h3>
-          <p className="leading-tight">Orbit and study the Sun</p>
-        </div>
-      </div>
-
-      {/* 4 */}
-      <div className="flex items-start gap-3  p-3 rounded-xl hover:bg-orange-400/10 transition-all duration-300">
-        <span className="text-yellow-400 text-2xl">⚡</span>
-        <div>
-          <h3 className="text-yellow-400 font-semibold">Energy Source</h3>
-          <p className="leading-tight">Powers life and industry</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
- 
-
-
-
-  {/* RIGHT SIDE - Image & Data */}
-  <div className="relative flex justify-center items-center">
+  
+  {/* LEFT SIDE - Image & Data */}
+  <div className="relative flex justify-center items-center order-1 md:order-1">
     {/* Background glow */}
     <div className="absolute w-80 h-80 bg-yellow-500/20 blur-3xl rounded-full"></div>
 
     {/* Main image */}
     <img
-      src="/images/sun-earth.jpg"
+      src="space-cadets/frontend/src/pages/SunPage.jsx"
       alt="Sun and Earth"
       className="relative z-10 w-full max-w-md rounded-full object-cover shadow-lg"
     />
@@ -348,13 +293,67 @@ export default function SunPage() {
       <p className="uppercase tracking-wide text-yellow-400 font-semibold">
         The Mass of the Sun
       </p>
-      <p>
-        M☉ = (1.98847 ± 0.00007) × 10³⁰ kg
-      </p>
+      <p>M☉ = (1.98847 ± 0.00007) × 10³⁰ kg</p>
       <p>99.86% of the total mass of the Solar System</p>
     </div>
   </div>
+
+  {/* RIGHT SIDE - Text Content */}
+  <div className="text-gray-200 space-y-5 order-2 md:order-2">
+    <h2 className="text-3xl font-bold text-yellow-400 tracking-widest uppercase">
+      Relative to the Earth
+    </h2>
+    <p>
+      According to the spectral classification, the Sun belongs to the 
+      <span className="text-yellow-400 font-semibold"> G2V type (yellow dwarf)</span>.
+    </p>
+    <p>
+      The average density of the Sun is 
+      <span className="text-yellow-400 font-semibold"> 1.4 g/cm³</span>, which is about 1.4 times that of water.
+    </p>
+    <p>
+      The effective surface temperature of the Sun is approximately 
+      <span className="text-yellow-400 font-semibold"> 5780 Kelvin</span>, radiating immense energy that sustains life on Earth.
+    </p>
+
+    {/* Small icons info */}
+    <div className="grid grid-cols-2 gap-6 pt-6 text-sm text-gray-300">
+      <div className="flex items-start gap-3 p-3 rounded-xl hover:bg-orange-400/10 transition-all duration-300">
+        <span className="text-yellow-400 text-2xl">🌘</span>
+        <div>
+          <h3 className="text-yellow-400 font-semibold">Eclipses</h3>
+          <p className="leading-tight">Visible from Earth</p>
+        </div>
+      </div>
+
+      <div className="flex items-start gap-3 p-3 rounded-xl hover:bg-orange-400/10 transition-all duration-300">
+        <span className="text-yellow-400 text-2xl">🌐</span>
+        <div>
+          <h3 className="text-yellow-400 font-semibold">Solar System</h3>
+          <p className="leading-tight">Part of cosmic web</p>
+        </div>
+      </div>
+
+      <div className="flex items-start gap-3 p-3 rounded-xl hover:bg-orange-400/10 transition-all duration-300">
+        <span className="text-yellow-400 text-2xl">🛰️</span>
+        <div>
+          <h3 className="text-yellow-400 font-semibold">Satellites</h3>
+          <p className="leading-tight">Orbit and study the Sun</p>
+        </div>
+      </div>
+
+      <div className="flex items-start gap-3 p-3 rounded-xl hover:bg-orange-400/10 transition-all duration-300">
+        <span className="text-yellow-400 text-2xl">⚡</span>
+        <div>
+          <h3 className="text-yellow-400 font-semibold">Energy Source</h3>
+          <p className="leading-tight">Powers life and industry</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
+
 
 
           {/* Tabs Section */}
