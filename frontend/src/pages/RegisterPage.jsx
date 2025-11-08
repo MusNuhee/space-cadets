@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import GalaxyBackground from "../components/GalaxyBackground"; // Import GalaxyBackground
+import axios from "axios";
+
 
 export default function RegisterPage() {
   const [firstName, setFirstName] = useState("");
@@ -18,7 +20,7 @@ export default function RegisterPage() {
     return `${first.toLowerCase()}${last.toLowerCase()}${randomNum}`;
   };
 
-  const handleRegister = (e) => {
+  const handleRegister = async(e) => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
@@ -30,7 +32,7 @@ export default function RegisterPage() {
     const username = generateUsername(firstName, lastName);
 
     // Load existing users from localStorage
-    const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+     const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
 
     // Create new user
     const newUser = {
@@ -46,13 +48,21 @@ export default function RegisterPage() {
     localStorage.setItem("users", JSON.stringify([...existingUsers, newUser]));
 
     // Save login state right after registration
-    localStorage.setItem("isLoggedIn", "true");
+     localStorage.setItem("isLoggedIn", "true");
     localStorage.setItem("username", username);
+
+    const res = await axios.post("http://localhost:5000/api/register", newUser);
+    if(res.status !== 200){
+      setError("❌ Registration failed. Please try again.");
+      return;
+    }
 
     alert(`🎉 Account created successfully!\nYour username is: ${username}`);
 
     // Redirect to SuccessPage
     navigate("/success");
+
+    
   };
 
   return (
