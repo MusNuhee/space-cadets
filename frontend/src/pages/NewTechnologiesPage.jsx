@@ -250,7 +250,49 @@ export default function NewTechnologiesPage() {
   `}</style>
 </div>
 
+<div className="relative bg-transparent flex flex-wrap gap-18 justify-center items-start p-8">
+  {/* Example images */}
+  <img
+    src="/src/assets/xx.png"
+    alt="Reusable Rocket"
+    className="w-40 h-40 object-contain animate-float"
+  />
+  <img
+    src="/src/assets/tt.png"
+    alt="Small Satellite"
+    className="w-40 h-40 object-contain animate-float-slow"
+  />
+  <img
+    src="/src/assets/rr.png"
+    alt="AI Robotics"
+    className="w-40 h-40 object-contain animate-float"
+  />
+  <img
+    src="/src/assets/ii.png"
+    alt="Solar Sail"
+    className="w-40 h-40 object-contain animate-float-slow"
+  />
 
+  {/* Animation styles */}
+  <style jsx>{`
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+    @keyframes float-slow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(-5deg); }
+    }
+
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    .animate-float-slow {
+      animation: float-slow 4s ease-in-out infinite;
+    }
+  `}</style>
+</div>
+			
 
  <div className="flex flex-col items-center justify-center min-h-screen  text-white overflow-hidden">
   {/* Glass Transparent Box */}
@@ -606,7 +648,48 @@ export default function NewTechnologiesPage() {
   `}</style>
 </div>
 
+<div className="relative bg-transparent flex flex-wrap gap-28 justify-center items-start p-0.5">
+  {/* Example images */}
+  <img
+    src="/src/assets/aa.png"
+    alt="Reusable Rocket"
+    className="w-40 h-40 object-contain animate-float"
+  />
+  <img
+    src="/src/assets/qq.png"
+    alt="Small Satellite"
+    className="w-40 h-40 object-contain animate-float-slow"
+  />
+  <img
+    src="/src/assets/cc.png"
+    alt="AI Robotics"
+    className="w-40 h-40 object-contain animate-float"
+  />
+  <img
+    src="/src/assets/dd.png"
+    alt="Solar Sail"
+    className="w-40 h-40 object-contain animate-float-slow"
+  />
 
+  {/* Animation styles */}
+  <style jsx>{`
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+    @keyframes float-slow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(-5deg); }
+    }
+
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    .animate-float-slow {
+      animation: float-slow 4s ease-in-out infinite;
+    }
+  `}</style>
+</div>
 			
 			
 			
