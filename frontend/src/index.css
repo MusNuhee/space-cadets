@@ -13,3 +13,91 @@
 .animate-slideDown {
   animation: slideDown 0.3s ease-out forwards;
 }
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+
+
+/* Floating animation towards right and back */
+@keyframes floatRight {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(30px); /* Move 30px to the right */
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Apply this animation */
+.animate-float-right {
+  animation: floatRight 3s ease-in-out infinite;
+}
+
+
+/* Move the moon image smoothly from left to right across the screen */
+@keyframes moveRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100vw); /* Move across the entire screen width */
+  }
+}
+
+
+.moon-float-right {
+  position: absolute;
+  right: 50px; /* push it to the right side */
+  top: 150px; /* adjust vertically as needed */
+  width: 250px; /* make it bigger */
+  height: auto;
+  animation: moonFloat 4s ease-in-out infinite;
+}
+
+/* Floating animation (gentle up and down) */
+@keyframes moonFloat {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(3deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+
+@keyframes floatSlow {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes spinSlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-float-slow {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+.animate-spin-slow:hover {
+  animation: spinSlow 6s linear infinite;
+}
+
+
+
+

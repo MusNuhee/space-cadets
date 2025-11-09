@@ -40,9 +40,10 @@ export default function GalaxyBackground() {
 
       {/* Cartoon Characters */}
       <img
-        src="https://i.ibb.co/9VjHZRw/astronaut.png" // Sample astronaut image
+        src="/src/assets/astro.png" // Sample astronaut image
         alt="Cartoon Astronaut floating in space"
-        className="absolute bottom-10 left-10 w-32 animate-float"
+        className="absolute bottom-10 left-10 w- animate-float transform scale-x-[-1]"
+        
       />
       <img
         src="https://static.vecteezy.com/system/resources/previews/046/346/878/original/cartoon-female-astronaut-floating-free-png.png" // Sample cartoon planet
@@ -50,7 +51,7 @@ export default function GalaxyBackground() {
         className="absolute top-20 right-20 w-70 animate-bounce"
       />
       <img
-        src="https://i.ibb.co/3h8h9qk/cartoon-alien.png" // Sample cartoon alien
+        src="/src/assets/rock.png" // Sample cartoon alien
         alt="Cartoon Alien waving"
         className="absolute bottom-20 right-1/3 w-28 animate-float"
       />
