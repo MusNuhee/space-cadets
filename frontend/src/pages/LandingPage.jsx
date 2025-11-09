@@ -128,9 +128,9 @@ export default function LandingPage() {
 
       {/* Astronaut Image */}
       <motion.img
-        src="https://i.ibb.co/9VjHZRw/astronaut.png"
+        src="/src/assets/gala.gif"
         alt="Astronaut"
-        className="absolute bottom-0 right-10 w-64 opacity-80 pointer-events-none"
+        className="absolute bottom-100 right-10 w-100 opacity-80 pointer-events-none"
         animate={{ y: [0, -20, 0] }}
         transition={{ repeat: Infinity, duration: 4 }}
       />
