@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import GameModal from "../components/GameModal";
 import AstroQuiz from "../games/AstroQuiz";
 import MeteorCatch from "../games/MeteorCatch";
-import PlanetMatch from "../games/PlanetMatch"; // Import PlanetMatch
+import SpaceRacer from "../games/SpaceRacer"; // Import PlanetMatch
 import GalaxyExplorer from "../games/GalaxyExplorer"; // Import GalaxyExplorer
 import RocketBuilder from "../games/RocketBuilder"; // Import RocketBuilder
 
@@ -26,12 +26,12 @@ const games = [
 		component: MeteorCatch,
 	},
 	{
-		name: "Planet Match",
-		icon: "🪐",
-		path: "/games/planetmatch",
-		description: "Match planets and learn their names!",
-		component: PlanetMatch,
-	},
+		name: "Space Racer 3D",
+		icon: "🚀",
+		path: "/games/spaceracer",
+		description: "Dodge asteroids in deep space!",
+		component: SpaceRacer,
+			},
 	{
 		name: "Galaxy Explorer",
 		icon: "🌌",
